@@ -13,9 +13,9 @@ module ZooPass
 
   class Generator
     def initialize(adjectives = ADJECTIVES, nouns = NOUNS)
+      @nouns = nouns.split
+      @adjectives = adjectives.split
       @words = adjectives + nouns
-      @nouns = nouns
-      @adjectives = adjectives
     end
 
     def generate(length = DEFAULT_LENGTH)
