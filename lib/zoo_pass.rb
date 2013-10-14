@@ -7,6 +7,10 @@ module ZooPass
     ZooPass::Generator.new.generate(length)
   end
 
+  def self.generate_name
+    ZooPass::Generator.new.generate_name
+  end
+
   class Generator
     def initialize(adjectives = ADJECTIVES, nouns = NOUNS)
       @words = adjectives + nouns
@@ -18,7 +22,7 @@ module ZooPass
       @words.shuffle.take(length).join('-')
     end
 
-    def generate_name()
+    def generate_name
       @adjective.shuffle.take(1)+ '_' + @nouns.shuffle.take(1)
     end
 
