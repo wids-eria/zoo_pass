@@ -1,7 +1,13 @@
 module ZooPass
   DEFAULT_LENGTH = 3
-  ADJECTIVES = File.open("adjectives.txt", 'r').read
-  NOUNS =  File.open("nouns.txt", 'r').read
+  ADJECTIVES = Array.new 
+  File.open("adjectives.txt", 'r').each do |l|
+    ADJECTIVES << l.strip
+  end
+  NOUNS = Array.new  
+  File.open("nouns.txt", 'r').each do |l|
+    NOUNS << l.strip
+  end
 
   def self.generate(length = DEFAULT_LENGTH)
     ZooPass::Generator.new.generate(length)
@@ -13,8 +19,8 @@ module ZooPass
 
   class Generator
     def initialize(adjectives = ADJECTIVES, nouns = NOUNS)
-      @nouns = nouns.split
-      @adjectives = adjectives.split
+      @nouns = nouns
+      @adjectives = adjectives
       @words = adjectives + nouns
     end
 
@@ -23,7 +29,7 @@ module ZooPass
     end
 
     def generate_name
-      @adjectives.shuffle.take(1)+ '_' + @nouns.shuffle.take(1)
+      @adjectives.shuffle.take(1).first+ '_' + @nouns.shuffle.take(1).first
     end
 
   end
