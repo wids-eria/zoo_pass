@@ -23,7 +23,7 @@ module ZooPass
     end
 
     def generate_name
-      @adjective.shuffle.take(1)+ '_' + @nouns.shuffle.take(1)
+      @adjectives.shuffle.take(1)+ '_' + @nouns.shuffle.take(1)
     end
 
   end
