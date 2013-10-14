@@ -1,7 +1,7 @@
 module ZooPass
   DEFAULT_LENGTH = 3
-  ADJECTIVES = FILE.open("adjectives.txt", 'r').read
-  NOUNS =  FILE.open("nouns.txt", 'r').read
+  ADJECTIVES = File.open("adjectives.txt", 'r').read
+  NOUNS =  File.open("nouns.txt", 'r').read
 
   def self.generate(length = DEFAULT_LENGTH)
     ZooPass::Generator.new.generate(length)
