@@ -1,11 +1,11 @@
 module ZooPass
   DEFAULT_LENGTH = 3
   ADJECTIVES = Array.new 
-  File.open("adjectives.txt", 'r').each do |l|
+  File.open("config/adjectives.txt", 'r').each do |l|
     ADJECTIVES << l.strip
   end
   NOUNS = Array.new  
-  File.open("nouns.txt", 'r').each do |l|
+  File.open("config/nouns.txt", 'r').each do |l|
     NOUNS << l.strip
   end
 
